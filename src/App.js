@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
-
+import { GoogleOAuthProvider } from '@react-oauth/google';
 import { Login } from './components';
 import Home from './container/Home';
 
@@ -14,10 +14,12 @@ const App = () => {
   }, []);
 
   return (
-    <Routes>
-      <Route path="login" element={<Login />} />
-      <Route path="/*" element={<Home />} />
-    </Routes>
+    <GoogleOAuthProvider clientId={`${process.env.REACT_APP_GOOGLE_API_TOKEN}`} onScriptLoadError={(err) => console.log('script load failure', err)} onScriptLoadSuccess={((sucess) => console.log('sucess', sucess))}>
+      <Routes>
+        <Route path="login" element={<Login />} />
+        <Route path="/*" element={<Home />} />
+      </Routes>
+    </GoogleOAuthProvider>
   );
 };
 
