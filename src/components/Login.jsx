@@ -32,7 +32,13 @@ const Login = () => {
       userName: name,
       image: picture,
     };
- 
+    const profileObj={
+      name:name, 
+      googleId:sub, 
+      imageUrl:picture,
+    }
+    localStorage.setItem('user', JSON.stringify(profileObj));
+
     client.createIfNotExists(user).then(() => {
       navigate("/", { replace: true });
     });
