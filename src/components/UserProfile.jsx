@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { AiOutlineLogout } from 'react-icons/ai';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom'; 
 // import { GoogleLogout } from 'react-google-login';
 import { googleLogout } from '@react-oauth/google';
 import { userCreatedPinsQuery, userQuery, userSavedPinsQuery } from '../utils/data';
@@ -45,10 +45,11 @@ const UserProfile = () => {
   }, [text, userId]);
 
   const logout = () => {
-    googleLogout().then(() => {
+    googleLogout()
+    //.then(() => {
       localStorage.clear();
       navigate('/login');
-    });
+    //});
   };
 
   if (!user) return <Spinner message="Loading profile" />;
