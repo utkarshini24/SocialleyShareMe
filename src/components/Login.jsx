@@ -58,7 +58,8 @@ const Login = () => {
         />
  
         <div className="absolute flex flex-col justify-center items-center top-0 right-0 left-0 bottom-0    bg-blackOverlay">
-          <div className="p-5">
+          <div className="p-5 flex flex-col">
+            <p style={{fontSize:20}}>SocialleyShareMe</p>
             <img src={logo} width="130px" />
           </div>
  
